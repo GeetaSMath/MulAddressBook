@@ -1,58 +1,66 @@
 package com.bridgelabz;
 import java.util.*;
 public class AddressBook {
+    static Scanner sc = new Scanner(System.in);
+        static AddressBookMul book1 = new AddressBookMul();
+        static ArrayList<AddressBookMul> man1 = new ArrayList<AddressBookMul>();
 
-    public static void main(String[] args) {
-            Scanner sc = new Scanner(System.in);
-
-        AddressBookMul book1 = new AddressBookMul();
-            ArrayList<String> man1 = new ArrayList<String>();
-
-
-            System.out.println("Add a new Contact to Address Book");
-
+        //Created method for adding contact
+        public static void addContact(){
             System.out.print("Enter First Name : ");
             String fN = sc.nextLine();
             book1.setFirstName(fN);
-            man1.add(0, book1.getFirstName());
-
 
             System.out.print("Enter Last Name : ");
             String lN = sc.nextLine();
             book1.setLastName(lN);
-            man1.add(1, book1.getLastName());
 
             System.out.print("Enter Email-id : ");
             String eId = sc.nextLine();
             book1.setEmail(eId);
-            man1.add(2, book1.getEmail());
 
             System.out.print("Enter Cell Num : ");
             String cell = sc.nextLine();
             book1.setCellNum(cell);
-            man1.add(3, book1.getCellNum());
 
             System.out.print("Enter City : ");
             String city = sc.nextLine();
             book1.setCity(city);
-            man1.add(4, book1.getCity());
 
             System.out.print("Enter Zip : ");
             String zIp = sc.nextLine();
             book1.setZip(zIp);
-            man1.add(5, book1.getZip());
 
             System.out.print("Enter Sate : ");
             String state = sc.nextLine();
             book1.setState(state);
-            man1.add(6, book1.getState());
 
-            System.out.println(man1);
+            man1.add(book1);
+        }
+        //Editing Contact
+        public static void editContact(){
+            System.out.println("Welcome to edit Address Book Program");
+            System.out.println("Enter Name for Confirmation : ");
+            String name = sc.nextLine();
+            for (int i =0; i<man1.size(); i++){
+                if(man1.get(i).getFirstName().equalsIgnoreCase(name)){
+                    man1.remove(i);
+                    addContact();
+                    System.out.println("Successfully Edit Data");
+                }else {
+                    System.out.println("No Data Found in Address Book");
+                }
+            }
+        }
 
-            System.out.println(" First Name: "+man1.get(0)+"\n Last Name: "+man1.get(1)+"\n Cell Num: "+man1.get(2)+"\n Email-id: "+man1.get(3)+"\n City: "+man1.get(4)+" \n Pin: "+man1.get(5)+"\n State: "+man1.get(6));
+        public static void main(String[] args) {
+            AddressBookMul book = new AddressBookMul();
+
+            System.out.println("##########    Welcome to Address Book Program    ###########");
+            System.out.println("1: Add a new Contact to Address Book");
+            addContact();
+            editContact();
 
 
         }
     }
-
-
