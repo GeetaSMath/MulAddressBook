@@ -1,8 +1,24 @@
 package com.bridgelabz;
+import java.util.*;
+import java.util.Scanner;
 
-public class AddressBookMul {
-
+public class AddinBook {
+    Scanner sc = new Scanner(System.in);
     private String firstName, lastName, city, state, zip, cellNum, email;
+
+    public AddinBook(){
+    }
+
+
+    public AddinBook(String fN, String lN, String eId, String cell, String city, String zIp, String state) {
+        this.firstName = fN;
+        this.lastName = lN;
+        this.city = city;
+        this.state = state;
+        this.zip = zIp;
+        this.cellNum = cell;
+        this.email = eId;
+    }
 
     public void setFirstName(String fname) {
         this.firstName = fname;
@@ -51,6 +67,16 @@ public class AddressBookMul {
     }
     public String getEmail() {
         return email;
+    }
+
+    public String printString(){
+        return (" First Name: " + getFirstName() + "\n Last Name: " + getLastName() + "\n Cell Num: " + getCellNum() + "\n Email-id: " + getEmail() + "\n City: " + getCity() + " \n Pin: " + getZip() + "\n State: " + getState());
+    }
+
+    public void editContact() {
+    }
+
+    public void printContactDetails() {
     }
 }
 
